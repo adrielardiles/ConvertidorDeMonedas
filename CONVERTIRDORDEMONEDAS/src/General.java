@@ -31,11 +31,17 @@ public class General {
 		
 		
 		//Ventana de eleccion CONVERTIDOR
+		
+		
+		
+		boolean ciclo = true;
+		
+		while(ciclo) {
+		
 		String opcionSeleccionada = (String) JOptionPane.showInputDialog(null, "Seleccione una opción de conversión", "Menu", JOptionPane.PLAIN_MESSAGE, null,opciones,opciones[0]);
 		
 		
-		//ELEGIR TIPO DE CONVERTIDOR
-		
+
 		
 		if (opcionSeleccionada == opciones[0]) {
 		
@@ -48,18 +54,26 @@ public class General {
 			double valornuevo = 0;
 
 			double[] valoresDeConversion = {Dolar, Euro, Libras, Yen, Won_coreano, rDolar, rEuro, rLibras};
+			String[] monedas = {"Dolares", "Euro", "Libras", "Yen", "Won_coreano", "Soles", "Soles", "Soles"};
 			for (int i = 0; i < opcionesdemoneda.length; i++) {
 			    if (opcionSeleccionada2.equals(opcionesdemoneda[i])) {
 			        valornuevo = amount * valoresDeConversion[i];
-			        
+			        JOptionPane.showMessageDialog(null, "Tienes $" + valornuevo + " " + monedas[i], "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 			        break;
 			    }
 			}
-
 			
 		}
 
-			
+		int respuesta = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea continuar?", "Confirmación", JOptionPane.YES_NO_OPTION);
+		
+		
+		if (respuesta == JOptionPane.NO_OPTION) {
+		    ciclo = false;    
+		} 
+		
+		
+		
 
 			
 	}
@@ -69,4 +83,6 @@ public class General {
 		
 
   }
+	
+}
 
